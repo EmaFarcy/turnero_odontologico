@@ -1,3 +1,5 @@
+from abb import ArbolBinarioBusqueda
+
 class Persona: #Creo la clase Persona.
     def __init__(self, dni, nombre, apellido, contacto, direccion):
         self.dni = dni
