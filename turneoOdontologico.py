@@ -55,35 +55,35 @@ class Turno: #Creo la clase Turno.
             print(f"Paciente: {turno.paciente} - Profesional: {turno.profesional} - Fecha: {turno.fecha} - Hora: {turno.hora}") 
 
 class Clinica:
-    lista_pacientes = ArbolBinarioBusqueda()
-	lista_profesionales = ArbolBinarioBusqueda()
-    lista_turnos = ArbolBinarioBusqueda()
+    self.lista_pacientes = ArbolBinarioBusqueda()
+    self.lista_profesionales = ArbolBinarioBusqueda()
+    self.lista_turnos = ArbolBinarioBusqueda()
 
-    def alta_paciente():
+    def alta_paciente(self):
             pass
 
-    def alta_profesional():
+    def alta_profesional(self):
             pass
 
-    def alta_turno():
+    def alta_turno(self):
             pass
 
-    def ver_paciente():
+    def ver_paciente(self):
             pass
 
-    def ver_profesional():
+    def ver_profesional(self):
             pass
 
-    def ver_turno():
+    def ver_turno(self):
             pass
 
-    def baja_paciente():
+    def baja_paciente(self):
             pass
 
-    def baja_profesional():
+    def baja_profesional(self):
             pass
 
-    def baja_turno():
+    def baja_turno(self):
             pass
 
 '''
