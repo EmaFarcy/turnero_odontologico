@@ -54,12 +54,43 @@ class Turno: #Creo la clase Turno.
         for turno in self.lista_turnos: #Recorro la lista de turnos y muestro cada uno.
             print(f"Paciente: {turno.paciente} - Profesional: {turno.profesional} - Fecha: {turno.fecha} - Hora: {turno.hora}") 
 
+class Clinica:
+    lista_pacientes = ArbolBinarioBusqueda()
+	lista_profesionales = ArbolBinarioBusqueda()
+    lista_turnos = ArbolBinarioBusqueda()
+
+    def alta_paciente():
+            pass
+
+    def alta_profesional():
+            pass
+
+    def alta_turno():
+            pass
+
+    def ver_paciente():
+            pass
+
+    def ver_profesional():
+            pass
+
+    def ver_turno():
+            pass
+
+    def baja_paciente():
+            pass
+
+    def baja_profesional():
+            pass
+
+    def baja_turno():
+            pass
 
 '''
 class Clinica:
-        pacientes (ABB)
-		profesionales (ABB)
-		lista turnos (ABB)
+        lista_pacientes = ArbolBinarioBusqueda()
+		lista_profesionales = ArbolBinarioBusqueda()
+        lista_turnos = ArbolBinarioBusqueda()
 
 	def mostrar_turno_paciente(contar turnos asignados a un paciente):
 
@@ -77,4 +108,3 @@ class Clinica:
 
     def(probando git)
 '''
-#fsdfsdfsdfsdfsdfs
