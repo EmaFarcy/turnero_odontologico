@@ -6,21 +6,22 @@
 
 class ArbolBinarioBusqueda:
 
-    def __init__(self):
-        self.raiz = None
-        self.tamano = 0
+    def __init__(self): #constructor. Inicializa un árbol vacío. Representa el ABB en sí.
+        self.raiz = None # referencia al nodo raíz. Como el árbol está vacío, la referencia es None.
+        self.tamano = 0 # cantidad de nodos en el árbol. Como el árbol está vacío, el tamaño es 0.
 
-    def agregar(self,clave,valor):
-        if self.raiz:
+#agrega y _agregar método para agregar un nuevo nodo al árbol. 
+    def agregar(self,clave,valor): #método "agregar" que inicializa la inserción de un nuevo nodo en el árbol.
+        if self.raiz: #si el árbol no está vacío, se llama al método "_agregar" para realizar la inserción.
             self._agregar(clave,valor,self.raiz)
-        else:
-            self.raiz = NodoArbol(clave,valor)
+        else: #si el árbol está vacío, se crea un nuevo nodo y se lo asigna a la raíz.
+            self.raiz = NodoArbol(clave,valor) 
         self.tamano = self.tamano + 1
 
-    def _agregar(self,clave,valor,nodoActual):
-        if clave < nodoActual.clave:
-            if nodoActual.tieneHijoIzquierdo():
-                self._agregar(clave,valor,nodoActual.hijoIzquierdo)
+    def _agregar(self,clave,valor,nodoActual): #método "_agregar" (recursivo) que realiza la inserción de un nuevo nodo en el árbol.
+        if clave < nodoActual.clave: #si la clave del nodo a insertar es menor a la clave del nodo actual, se inserta a la izquierda.
+            if nodoActual.tieneHijoIzquierdo(): #si el nodo actual tiene hijo izquierdo, se llama al método "_agregar" para realizar la inserción.
+                self._agregar(clave,valor,nodoActual.hijoIzquierdo) #se pasa como parámetro el hijo izquierdo del nodo actual.
             else:
                 nodoActual.hijoIzquierdo = NodoArbol(clave,valor,padre=nodoActual)
         else:
@@ -150,14 +151,14 @@ class ArbolBinarioBusqueda:
             self._preorden(arbol.hijoIzquierdo)
             self._preorden(arbol.hijoDerecho)
 
-class NodoArbol:
+class NodoArbol: #representa cada nodo en el árbol.
     def __init__(self,clave,valor,izquierdo=None,derecho=None,padre=None):
-        self.clave = clave
-        self.cargaUtil = valor
-        self.hijoIzquierdo = izquierdo
-        self.hijoDerecho = derecho
-        self.padre = padre
-        self.factorEquilibrio = 0
+        self.clave = clave # Cada nodo tiene una clave, un valor y dos referencias a otros nodos.
+        self.cargaUtil = valor # valor asociado (carga útil)
+        self.hijoIzquierdo = izquierdo # referencia al hijo izquierdo
+        self.hijoDerecho = derecho # referencia al hijo derecho
+        self.padre = padre # referencia al padre
+        self.factorEquilibrio = 0 #Balance del arbol. Se utiliza para el balanceo AVL
 
     def tieneHijoIzquierdo(self):
         return self.hijoIzquierdo
