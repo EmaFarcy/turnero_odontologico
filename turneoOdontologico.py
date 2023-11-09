@@ -74,4 +74,6 @@ class Clinica:
 	def (baja de pacientes,profesional,turnos)
 
 	def(modificar pacientes,profesional,turnos)
+
+    def(probando git)
 '''
