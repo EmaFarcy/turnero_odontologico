@@ -13,27 +13,14 @@ class Persona: #Creo la clase Persona.
     
 
 class Paciente(Persona): #Creo la clase Paciente.
-    lista_pacientes = []
-    
-    def agregar_paciente(self, paciente): #Agrego un paciente a la lista de pacientes.
-        Paciente.lista_pacientes.append(paciente)
-    
-    def mostrar_pacientes(self): #Muestro la lista de pacientes.
-        for paciente in self.lista_pacientes:
-            print(paciente)
+    def __init__(self, dni, nombre, apellido, contacto, direccion, obra_social):
+        super().__init__(dni, nombre, apellido, contacto, direccion)
+        self.obra_social = obra_social
 
 
 class Profesional(Persona): #Creo la clase Profesional.
     def __init__(self, dni, nombre, apellido, contacto, direccion):
         super().__init__(dni, nombre, apellido, contacto, direccion) #Profesional es una subclase que hereda de Persona. Utilizo el super() para heredar los atributos de la clase padre.
-        self.lista_profesionales = []
-    
-    def agregar_profesional(self, profesional): #Agrego un profesional a la lista de profesionales.
-        self.lista_profesionales.append(profesional)
-
-    def mostrar_profesionales(self):
-        for profesional in self.lista_profesionales: #Recorro la lista de profesionales y muestro cada uno.
-            print(profesional)
 
 
 class Turno: #Creo la clase Turno.
@@ -42,17 +29,7 @@ class Turno: #Creo la clase Turno.
         self.profesional = profesional
         self.fecha = fecha
         self.hora = hora
-        self.lista_turnos = []
 
-    def agregar_turno(self, turno): #Agrego un turno a la lista de turnos.
-        self.lista_turnos.append(turno)
-
-    def contar_turnos(self):
-        return len(self.lista_turnos) #Retorno la cantidad de turnos registrados.
-
-    def mostrar_turnos(self):
-        for turno in self.lista_turnos: #Recorro la lista de turnos y muestro cada uno.
-            print(f"Paciente: {turno.paciente} - Profesional: {turno.profesional} - Fecha: {turno.fecha} - Hora: {turno.hora}") 
 
 class Clinica:
     self.lista_pacientes = ArbolBinarioBusqueda()
