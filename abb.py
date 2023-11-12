@@ -30,52 +30,52 @@ class ArbolBinarioBusqueda:
             else:
                 nodoActual.hijoDerecho = NodoArbol(clave,valor,padre=nodoActual)
  
-    def __setitem__(self,c,v):
-        self.agregar(c,v)
+    def __setitem__(self,c,v): #método especial para agregar un nuevo nodo al árbol.
+        self.agregar(c,v) #se llama al método "agregar" para realizar la inserción.
 
-    def obtener(self,clave):
-        if self.raiz:
-            res = self._obtener(clave,self.raiz)
-            if res:
-                return res.cargaUtil
+    def obtener(self,clave): #método para obtener un nodo del árbol.
+        if self.raiz: #si el árbol no está vacío, se llama al método "_obtener" para realizar la búsqueda.
+            res = self._obtener(clave,self.raiz) #se pasa como parámetro la raíz del árbol.
+            if res: #si se encuentra el nodo, se retorna la carga útil del nodo.
+                return res.cargaUtil #se retorna la carga útil del nodo.
             else:
-                return None
+                return None #si no se encuentra el nodo, se retorna None.
         else:
             return None
 
-    def _obtener(self,clave,nodoActual):
-        if not nodoActual:
-            return None
-        elif nodoActual.clave == clave:
-            return nodoActual
-        elif clave < nodoActual.clave:
+    def _obtener(self,clave,nodoActual): #método "_obtener" (recursivo) que realiza la búsqueda de un nodo en el árbol.
+        if not nodoActual: #si el nodo actual es None, se retorna None.
+            return None #se retorna None.
+        elif nodoActual.clave == clave: #si la clave del nodo actual es igual a la clave del nodo buscado, se retorna el nodo actual.
+            return nodoActual #se retorna el nodo actual.
+        elif clave < nodoActual.clave: #si la clave del nodo buscado es menor a la clave del nodo actual, se llama al método "_obtener" para realizar la búsqueda.
             return self._obtener(clave,nodoActual.hijoIzquierdo)
         else:
             return self._obtener(clave,nodoActual.hijoDerecho)        
 
-    def __getitem__(self,clave):
-        res = self.obtener(clave) 
-        if res:
+    def __getitem__(self,clave): #método especial para obtener un nodo del árbol.
+        res = self.obtener(clave)  #se llama al método "obtener" para realizar la búsqueda.
+        if res: #si se encuentra el nodo, se retorna la carga útil del nodo.
             return res
         else:
             raise KeyError('Error, la clave no está en el árbol')
 
-    def __contains__(self,clave):
+    def __contains__(self,clave): #método especial para verificar si un nodo está en el árbol.
         if self._obtener(clave,self.raiz):
             return True
         else:
             return False
        
-    def longitud(self):
+    def longitud(self): #método para obtener la cantidad de nodos del árbol.
         return self.tamano
 
-    def __len__(self):
+    def __len__(self): #método especial para obtener la cantidad de nodos del árbol.
         return self.tamano
 
-    def __iter__(self):
+    def __iter__(self): #método especial para iterar sobre el árbol.
         return self.raiz.__iter__()
 
-    def eliminar(self,clave):
+    def eliminar(self,clave): #método para eliminar un nodo del árbol.
         if self.tamano > 1:
             nodoAEliminar = self._obtener(clave,self.raiz)
             if nodoAEliminar:
@@ -89,10 +89,10 @@ class ArbolBinarioBusqueda:
         else:
             raise KeyError('Error, la clave no está en el árbol')
 
-    def __delitem__(self,clave):
+    def __delitem__(self,clave): #método especial para eliminar un nodo del árbol.
         self.eliminar(clave)
 
-    def remover(self,nodoActual):
+    def remover(self,nodoActual): #método para remover un nodo del árbol.
         if nodoActual.esHoja(): #hoja
             if nodoActual == nodoActual.padre.hijoIzquierdo:
                 nodoActual.padre.hijoIzquierdo = None
@@ -124,16 +124,16 @@ class ArbolBinarioBusqueda:
                 else:
                     nodoActual.reemplazarDatoDeNodo(nodoActual.hijoDerecho.clave, nodoActual.hijoDerecho.cargaUtil, nodoActual.hijoDerecho.hijoIzquierdo, nodoActual.hijoDerecho.hijoDerecho)
 
-    def inorden(self):
+    def inorden(self): #método para recorrer el árbol en orden.
         self._inorden(self.raiz)
 
-    def _inorden(self,arbol):
+    def _inorden(self,arbol): #método "_inorden" (recursivo) que recorre el árbol en orden.
         if arbol != None:
             self._inorden(arbol.hijoIzquierdo)
             print(arbol.clave)
             self._inorden(arbol.hijoDerecho)
 
-    def postorden(self):
+    def postorden(self): #método para recorrer el árbol en postorden.
         self._postorden(self.raiz)
 
     def _postorden(self, arbol):
@@ -160,31 +160,31 @@ class NodoArbol: #representa cada nodo en el árbol.
         self.padre = padre # referencia al padre
         self.factorEquilibrio = 0 #Balance del arbol. Se utiliza para el balanceo AVL
 
-    def tieneHijoIzquierdo(self):
+    def tieneHijoIzquierdo(self): #método para verificar si un nodo tiene hijo izquierdo.
         return self.hijoIzquierdo
        
-    def tieneHijoDerecho(self):
+    def tieneHijoDerecho(self): #método para verificar si un nodo tiene hijo derecho.
         return self.hijoDerecho
 
-    def esHijoIzquierdo(self):
+    def esHijoIzquierdo(self): #método para verificar si un nodo es hijo izquierdo.
         return self.padre and self.padre.hijoIzquierdo == self
     
-    def esHijoDerecho(self):
+    def esHijoDerecho(self): #método para verificar si un nodo es hijo derecho.
         return self.padre and self.padre.hijoDerecho == self
 
-    def esRaiz(self):
+    def esRaiz(self): #método para verificar si un nodo es la raíz.
         return not self.padre
 
-    def esHoja(self):
+    def esHoja(self): #método para verificar si un nodo es hoja.
         return not (self.hijoDerecho or self.hijoIzquierdo)
 
-    def tieneAlgunHijo(self):
+    def tieneAlgunHijo(self): #método para verificar si un nodo tiene algún hijo.
         return self.hijoDerecho or self.hijoIzquierdo
 
-    def tieneAmbosHijos(self):
+    def tieneAmbosHijos(self): #método para verificar si un nodo tiene ambos hijos.
         return self.hijoDerecho and self.hijoIzquierdo
 
-    def reemplazarDatoDeNodo(self,clave,valor,hizq,hder):
+    def reemplazarDatoDeNodo(self,clave,valor,hizq,hder): #método para reemplazar la clave, el valor y los hijos de un nodo.
         self.clave = clave
         self.cargaUtil = valor
         self.hijoIzquierdo = hizq
@@ -194,7 +194,7 @@ class NodoArbol: #representa cada nodo en el árbol.
         if self.tieneHijoDerecho():
             self.hijoDerecho.padre = self    
 
-    def encontrarSucesor(self):
+    def encontrarSucesor(self): #método para encontrar el sucesor de un nodo.
         suc = None
         if self.tieneHijoDerecho():
             suc = self.hijoDerecho.encontrarMin()
@@ -208,7 +208,7 @@ class NodoArbol: #representa cada nodo en el árbol.
                     self.padre.hijoDerecho = self
         return suc
 
-    def empalmar(self):
+    def empalmar(self): #método para empalmar un nodo.
         if self.esHoja():
             if self.esHijoIzquierdo():
                 self.padre.hijoIzquierdo = None
@@ -244,7 +244,7 @@ class NodoArbol: #representa cada nodo en el árbol.
                 for elem in self.hijoDerecho:
                     yield elem
 
-if __name__ == "__main__":
+if __name__ == "__main__": #test del árbol.
     miArbol = ArbolBinarioBusqueda()
     miArbol[3]="rojo"
     miArbol[4]="azul"
