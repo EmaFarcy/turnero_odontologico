@@ -28,6 +28,7 @@ class Persona: #Creo la clase Persona.
     
 
 class Paciente(Persona): #Creo la clase Paciente.
+
     #utilizo el arbol binario de busqueda (ABB)
     
     def __init__(self, dni, nombre, apellido, contacto, direccion):
@@ -52,6 +53,13 @@ class Profesional(Persona): #Creo la clase Profesional.
     def mostrar_profesionales(self):
         for profesional in self.lista_profesionales: #Recorro la lista de profesionales y muestro cada uno.
             print(profesional)
+
+
+
+class Profesional(Persona): #Creo la clase Profesional.
+    def __init__(self, dni, nombre, apellido, contacto, direccion):
+        super().__init__(dni, nombre, apellido, contacto, direccion) #Profesional es una subclase que hereda de Persona. Utilizo el super() para heredar los atributos de la clase padre.
+
 
 
 class Turno: #Creo la clase Turno.
@@ -102,7 +110,6 @@ class Clinica:
         for paciente in self.pacientes:
             print(paciente)    
    
-        
     def contiene_profesional(self, dni): #Verifico si el profesional ya se encuentra registrado.
         return dni in self.profesionales
     
@@ -121,47 +128,7 @@ class Clinica:
     def eliminar_turno(self, turno): #Elimino un turno de la lista de turnos.
         self.turnos.remover(turno.fecha) #TAREA: Comparar fecha y hora.
 
-    
-    
-  
-        
-        
-        
-'''        
-        
-    def mostrar_turno_paciente(self, turnos_paciente): #Muestro los turnos asignados a un paciente.
-       for turno in self.turnos_paciente:
-               print(turnos_paciente)
-    
-    def mostrar_turno_profesional(self, turno_profesional):
-        for turno in self.profesionales:
-                print(turno_profesional)
-    
-    def mostrar_turnosdeldia(self, fecha):
-        for turno in self.mostrar_turnosdeldia:
-                print(fecha)
-    
-    
-    def buscar_turno(self, turno):
-        devolver= None
-        for turno in self.turnos:
-            if turno == turno:
-                devolver= turno
-        return devolver
-    
-    
-    def alta_paciente(self, paciente):
-        self.pacientes.agregar(paciente)
-    
-    def baja_paciente(self, paciente):
-        paciente = self.pacientes.buscar(paciente)
-        self.pacientes.remover(paciente)
-    
-    def modificar_paciente(self, paciente):
-        self.pacientes.modificar(paciente)
-    
-    
-    '''
+
 def seleccionar_especialidad(self): #Selecciono la especialidad odontológica.
         print("Seleccione la especialidad odontológica:")
         print("1. Ortodoncia - Dr. Carlos Martínez")
@@ -182,25 +149,3 @@ def seleccionar_especialidad(self): #Selecciono la especialidad odontológica.
             print(f"Ha seleccionado {especialidad}. El especialista asignado es {especialista}.")
         else:
             print("Opción no válida.")
-  
-
-'''
-class Clinica:
-        pacientes (ABB)
-		profesionales (ABB)
-		lista turnos (ABB)
-
-	def mostrar_turno_paciente(contar turnos asignados a un paciente):
-
-	def mostrar_turno_profesional (conteo de cuantos turnos tiene un profeesional).
-	
-	def mostar_turnosdeldia
-
-	def (buscar turno)
-	
-	def (alta de pacientes, profesional,turnos)
-
-	def (baja de pacientes,profesional,turnos)
-
-	def(modificar pacientes,profesional,turnos)
-'''
