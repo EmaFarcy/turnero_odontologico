@@ -6,7 +6,7 @@ def menu():
     opcion = 0
     while opcion < 1 or opcion > 11:
         print("--")  
-        print("\nBienvenido al sistema de turnos de la Clínica Odontológica")
+        print("\nBienvenido al sistema de turnos Dental Desk")
         print("1. Registrar un nuevo paciente")
         print("2. Registrar un nuevo profesional")
         print("3. Registrar un nuevo turno")
@@ -106,8 +106,8 @@ def run(turneoOdontologico):
                 ) 
                 print("Turno eliminado con éxito")
             input("Presione Enter para continuar...")
-        elif opcion == 11: #TAREA HAY UN ERROR EN ESTA OPCIÓN
-            print("Gracias por utilizar el sistema de turnos de la Clínica Odontológica")
+        elif opcion == 11:
+            print("Gracias por utilizar el sistema de turnos Dental Desk. Una buena salud oral es clave para el bienestar general.")
         else:
             print("Opción incorrecta. Por favor, ingrese una opción válida")
             
