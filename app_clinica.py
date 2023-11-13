@@ -4,7 +4,7 @@ from datetime import datetime
 
 def menu():
     opcion = 0
-    while opcion < 1 or opcion > 12:
+    while opcion < 1 or opcion > 11:
         print("--")  
         print("\nBienvenido al sistema de turnos de la Clínica Odontológica")
         print("1. Registrar un nuevo paciente")
@@ -25,7 +25,7 @@ def menu():
 def run(turneoOdontologico):
     opcion = 0
 
-    while opcion != 9:
+    while opcion != 11:
         opcion = menu()
         if opcion == 1: #Acá tengo que agregar el paciente a la lista de pacientes.
             nombre = input("Ingrese el nombre del paciente: ")
@@ -106,7 +106,7 @@ def run(turneoOdontologico):
                 ) 
                 print("Turno eliminado con éxito")
             input("Presione Enter para continuar...")
-        elif opcion == 11:
+        elif opcion == 11: #TAREA HAY UN ERROR EN ESTA OPCIÓN
             print("Gracias por utilizar el sistema de turnos de la Clínica Odontológica")
         else:
             print("Opción incorrecta. Por favor, ingrese una opción válida")
