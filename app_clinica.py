@@ -6,7 +6,7 @@ def menu():
     opcion = 0
     while opcion < 1 or opcion > 11:
         print("--")  
-        print("\nBienvenido al sistema de turnos Dental Desk")
+        print("\nBienvenido al sistema de turnos Dental Desk. Por favor elija una opción: ")
         print("1. Registrar un nuevo paciente")
         print("2. Registrar un nuevo profesional")
         print("3. Registrar un nuevo turno")
