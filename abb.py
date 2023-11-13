@@ -130,7 +130,7 @@ class ArbolBinarioBusqueda:
     def _inorden(self,arbol): #método "_inorden" (recursivo) que recorre el árbol en orden.
         if arbol != None:
             self._inorden(arbol.hijoIzquierdo)
-            print(arbol.clave)
+            print(arbol.cargaUtil)
             self._inorden(arbol.hijoDerecho)
 
     def postorden(self): #método para recorrer el árbol en postorden.
