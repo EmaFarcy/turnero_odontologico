@@ -1,4 +1,4 @@
-from turneroOdontologico import *
+from turneoOdontologico import *
 
 # Crear pacientes:
 juan = Paciente("12345678", "Juan", "Pérez", "+123456789", "Calle 123")
