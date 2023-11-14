@@ -32,16 +32,16 @@ class Paciente(Persona): #Creo la clase Paciente. #utilizo el arbol binario de b
         super().__init__(dni, nombre, apellido, contacto, direccion)
 
     def __str__(self):
-        return f"Nombre: {self.nombre} - Apellido: {self.apellido} - Contacto: {self.contacto} - Dirección: {self.direccion} " \
-            #.format(self.nombre, self.apellido, self.contacto, self.direccion)
-    
+        return f"Dni: {self.dni} - Nombre: {self.nombre} - Apellido: {self.apellido} - Contacto: {self.contacto} - Dirección: {self.direccion} " \
+            .format(self.dni, self.nombre, self.apellido, self.contacto, self.direccion)
+"""   
     def busqueda_individual(self, dnipaciente):
         try:
             paciente = self.__getitem__(dnipaciente)  # Utiliza el método __getitem__ del ABB
             return str(paciente)  # Devuelve la representación en cadena del paciente
         except KeyError:
             return "Paciente no encontrado"
-        
+"""        
 class Profesional(Persona): #Creo la clase Profesional.
     def __init__(self, dni, nombre, apellido, contacto, direccion, especialidad):
         super().__init__(dni, nombre, apellido, contacto, direccion)#Profesional es una subclase que hereda de Persona. Utilizo el super() para heredar los atributos de la clase padre.
@@ -98,7 +98,11 @@ class Clinica:
         self.pacientes.__contains__(dnipaciente)
 
     def busqueda_individual(self,dnipaciente):
-        self.pacientes.__getitem__(dnipaciente) 
+        try:
+            paciente = self.__getitem__(dnipaciente)  # Utiliza el método __getitem__ del ABB
+            return str(paciente)  # Devuelve la representación en cadena del paciente
+        except KeyError:
+            return "Paciente no encontrado" 
     
     def alta_nuevo_paciente(self, paciente): #Agrego un nuevo paciente a la lista de pacientes.
         self.pacientes.agregar(paciente.dni, paciente) #paciente.dni es la clave y paciente es el valor asociado a la clave.

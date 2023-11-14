@@ -1,5 +1,12 @@
 from turneoOdontologico import *
 
+clinica = Clinica()
+
+# REGISTRA UN PACIENTE
+nuevo_paciente = Paciente(12345678, "Juan", "Pérez", 123456789, "Calle 123")
+clinica.alta_nuevo_paciente(nuevo_paciente.dni, nuevo_paciente)
+print(clinica.busqueda_individual(nuevo_paciente.dni))
+
 # Crear pacientes:
 juan = Paciente("12345678", "Juan", "Pérez", "+123456789", "Calle 123")
 maria = Paciente("87654321", "María", "González", "+987654321", "Avenida 456")
