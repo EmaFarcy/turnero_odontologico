@@ -53,7 +53,7 @@ class ArbolBinarioBusqueda:
         else:
             return self._obtener(clave,nodoActual.hijoDerecho)        
 
-    def __getitem__(self,clave): #método especial para obtener un nodo del árbol.
+    def __getitem__(self,clave): #método especial para obtener un nodo del árbol. objeto[clave]
         res = self.obtener(clave)  #se llama al método "obtener" para realizar la búsqueda.
         if res: #si se encuentra el nodo, se retorna la carga útil del nodo.
             return res

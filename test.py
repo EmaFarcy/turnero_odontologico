@@ -1,5 +1,5 @@
 #Ingresar los Asserts
-from turneoOdontologico import Persona, Paciente, Profesional, Turno
+from turneoOdontologico import Persona, Paciente, Profesional, Turno, Clinica
 from datetime import datetime
 
 def test_persona_comparacion(): #Testeo la comparación entre dos personas.
@@ -37,12 +37,25 @@ def test_creacion_turno(): #Testeo la creación de un turno.
     assert turno.profesional == profesional
     assert turno.dato == fecha_turno
 
+def test_busqueda_turno(): #Testeo la creación de un turno.
+    paciente= Paciente(12345678, "Marcos", "Juarez", "123456789", "Calle 123")
+    profesional = Profesional(23456789, "Roberto", "Sanchez", "4562899", "Calle 123", "Odontólogo")
+    fecha_turno= datetime(2021, 11, 10, 10, 0, 0)
+    turno= Turno(paciente, profesional, fecha_turno)
+    clinica = Clinica()
+    clinica.alta_nuevo_paciente(paciente)
+    clinica.alta_nuevo_profesional(profesional)
+    clinica.registrar_turno(turno)
+    turno2 = clinica.busqueda_individual_turno(fecha_turno)
+    assert turno == turno2
+
 def run_tests(): #Ejecuto los tests.
     test_persona_comparacion()
     test_persona_str()
     test_creacion_paciente()
     test_creacion_profesional()
     test_creacion_turno()
+    test_busqueda_turno()
 
 if __name__ == "__main__": #Ejecuto la función run_tests().
     run_tests()

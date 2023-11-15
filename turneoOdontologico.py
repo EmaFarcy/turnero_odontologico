@@ -71,7 +71,7 @@ class Turno: #Creo la clase Turno.
             return self.fecha<=other.fecha
         
     def __eq__(self, other):
-            return self.fecha==other.fecha
+            return self.dato==other.dato
         
     def __ne__(self, other):
             return self.fecha!=other.fecha
@@ -87,9 +87,8 @@ class Clinica:
         self.pacientes = ArbolBinarioBusqueda()
         self.profesionales = ArbolBinarioBusqueda()
         self.turnos = ArbolBinarioBusqueda()
-        self.lista_pacientes = []
-        self.lista_profesionales = []
-        self.lista_turnos = []
+        
+    
     
     def contiene_paciente(self, dni): #Verifico si el paciente ya se encuentra registrado.
         return dni in self.pacientes
@@ -99,10 +98,10 @@ class Clinica:
 
     def busqueda_individual(self,dnipaciente):
         try:
-            paciente = self.__getitem__(dnipaciente)  # Utiliza el método __getitem__ del ABB
-            return str(paciente)  # Devuelve la representación en cadena del paciente
+            paciente = self.pacientes.__getitem__(dnipaciente)  # Utiliza el método __getitem__ del ABB
+            return paciente  # Devuelve la representación en cadena del paciente
         except KeyError:
-            return "Paciente no encontrado" 
+            return None
     
     def alta_nuevo_paciente(self, paciente): #Agrego un nuevo paciente a la lista de pacientes.
         self.pacientes.agregar(paciente.dni, paciente) #paciente.dni es la clave y paciente es el valor asociado a la clave.
@@ -120,7 +119,11 @@ class Clinica:
         self.pacientes.__contains__(dniprofesional)
 
     def busqueda_individual_profesional(self,dniprofesional):
-         self.profesionales.__getitem__(self,dniprofesional)
+        try:
+            profesional = self.profesionales.__getitem__(dniprofesional)  # Utiliza el método __getitem__ del ABB
+            return profesional  # Devuelve la representación en cadena del paciente
+        except KeyError:
+            return None
 
     def  mostrar_profesionales(self):
         self.profesionales.inorden()
@@ -135,29 +138,12 @@ class Clinica:
         self.turnos.inorden()
 
     def busqueda_individual_turno(self,dato):
-         self.profesionales.__getitem__(self,dato)
+        try:
+            turno = self.turnos.__getitem__(dato) # Utiliza el método __getitem__ del ABB
+            return turno  # Devuelve la representación en cadena del paciente
+        except KeyError:
+            return None
     
     def eliminar_turno(self, turno): #Elimino un turno de la lista de turnos.
         self.turnos.eliminar(turno.dato) #TAREA: Comparar fecha y hora.
 
-
-def seleccionar_especialidad(self): #Selecciono la especialidad odontológica.
-        print("Seleccione la especialidad odontológica:")
-        print("1. Ortodoncia - Dr. Carlos Martínez")
-        print("2. Odontopediatría - Dra. Ana Gómez")
-        print("3. Endodoncia - Dr. Jorge Pérez")
-        print("4. Periodoncia - Dra. Laura Rodríguez")
-        opcion = int(input("Ingrese su opción: "))
-
-        especialidades = { #Creo un diccionario con las especialidades odontológicas y los profesionales asignados a cada una.
-            1: ("Ortodoncia", "Dr. Carlos Martínez"),
-            2: ("Odontopediatría", "Dra. Ana Gómez"),
-            3: ("Endodoncia", "Dr. Jorge Pérez"),
-            4: ("Periodoncia", "Dra. Laura Rodríguez")
-        }
-
-        especialidad, especialista = especialidades.get(opcion, (None, None)) #Obtengo la especialidad y el especialista asignado a la especialidad seleccionada.
-        if especialidad:
-            print(f"Ha seleccionado {especialidad}. El especialista asignado es {especialista}.")
-        else:
-            print("Opción no válida.")
