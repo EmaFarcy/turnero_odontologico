@@ -49,6 +49,24 @@ def test_busqueda_turno(): #Testeo la creación de un turno.
     turno2 = clinica.busqueda_individual_turno(fecha_turno)
     assert turno == turno2
 
+def test_busqueda_():
+    profesional2= Profesional(42384942, "Enzo", "Medina", "123456789", "Jerez 123", "Endodoncista")
+    profesional = Profesional(23456789, "Roberto", "Sanchez", "4562899", "Calle 123", "Odontólogo")
+    clinica = Clinica()
+    clinica.alta_nuevo_profesional(profesional)
+    clinica.alta_nuevo_profesional(profesional2)
+    assert clinica.profesionales.longitud() == 2
+
+def test_busqueda_profesionales():
+    profesional2= Profesional(42384942, "Enzo", "Medina", "123456789", "Jerez 123", "Endodoncista")
+    profesional = Profesional(23456789, "Roberto", "Sanchez", "4562899", "Calle 123", "Odontólogo")
+    clinica = Clinica()
+    clinica.alta_nuevo_profesional(profesional)
+    clinica.alta_nuevo_profesional(profesional2)
+    assert clinica.profesionales.longitud() == 4444
+    
+    
+
 def run_tests(): #Ejecuto los tests.
     test_persona_comparacion()
     test_persona_str()

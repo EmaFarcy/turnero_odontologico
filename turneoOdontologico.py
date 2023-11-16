@@ -96,7 +96,7 @@ class Clinica:
     def buscar_paciente(self,dnipaciente):
         self.pacientes.__contains__(dnipaciente)
 
-    def busqueda_individual(self,dnipaciente):
+    def busqueda_individual_paciente(self,dnipaciente):
         try:
             paciente = self.pacientes.__getitem__(dnipaciente)  # Utiliza el método __getitem__ del ABB
             return paciente  # Devuelve la representación en cadena del paciente
