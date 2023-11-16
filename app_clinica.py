@@ -93,7 +93,8 @@ def run(turneoOdontologico):
             if resultado is not None:
                 print(resultado)
             else:
-                print("El profesional no se encuentra registrado")
+                print("El paciente no se encuentra registrado")
+            input("Presione Enter para continuar")
                      
         elif opcion == 6: #Mostrar lista de profesionales 
             if turneoOdontologico.profesionales.longitud() == 0:
