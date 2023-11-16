@@ -76,7 +76,7 @@ El versionado se realiza a través de Git.
 ## Autores ✒️
 
 - **Emanuel Farcy** - _Delegado de equipo - Desarrollador_ - [EmaFarcy](https://github.com/EmaFarcy)
-- **Enzo Medina** - _Desarrollador_
+- **Enzo Medina** - _Desarrollador_ - [EnzoMedina] [https://github.com/proger2]
 - **Raúl Scavuzzo** - _Desarrollador_ - [rascavuzzo1990](https://github.com/rascavuzzo1990)
 
 ## Licencia 📄
