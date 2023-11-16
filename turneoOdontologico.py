@@ -23,7 +23,7 @@ class Persona: #Creo la clase Persona.
     
     def __str__(self): # Método __str__ para mostrar los datos de la persona.
         return f"{self.nombre} {self.apellido} - DNI: {self.dni}- Contacto: {self.contacto} - Dirección: {self.direccion}" \
-            #.format(self.nombre, self.apellido, self.dni, self.contacto, self.direccion) #Retorno los datos de la persona.
+            
     
     
 
@@ -34,22 +34,15 @@ class Paciente(Persona): #Creo la clase Paciente. #utilizo el arbol binario de b
     def __str__(self):
         return f"Dni: {self.dni} - Nombre: {self.nombre} - Apellido: {self.apellido} - Contacto: {self.contacto} - Dirección: {self.direccion} " \
             .format(self.dni, self.nombre, self.apellido, self.contacto, self.direccion)
-"""   
-    def busqueda_individual(self, dnipaciente):
-        try:
-            paciente = self.__getitem__(dnipaciente)  # Utiliza el método __getitem__ del ABB
-            return str(paciente)  # Devuelve la representación en cadena del paciente
-        except KeyError:
-            return "Paciente no encontrado"
-"""        
+
 class Profesional(Persona): #Creo la clase Profesional.
     def __init__(self, dni, nombre, apellido, contacto, direccion, especialidad):
         super().__init__(dni, nombre, apellido, contacto, direccion)#Profesional es una subclase que hereda de Persona. Utilizo el super() para heredar los atributos de la clase padre.
         self.especialidad = especialidad
 
     def __str__(self):
-        return f"Nombre: {self.nombre} - Apellido: {self.apellido} - Especialidad: {self.especialidad} " \
-            #.format(self.nombre, self.apellido, self.especialidad)
+        return f"Nombre: {self.nombre} - Apellido: {self.apellido} - Especialidad: {self.especialidad} " 
+           
 
 
 
@@ -62,7 +55,7 @@ class Turno: #Creo la clase Turno.
     
     def __str__(self):
         return f"Paciente: {self.paciente} - Profesional: {self.profesional} - Fecha y hora: {self.dato} - " \
-            #.format(self.paciente, self.profesional, self.dato)
+            
         
     def __lt__(self, other):
             return self.fecha<other.fecha
@@ -132,7 +125,7 @@ class Clinica:
         return fecha in self.turnos
     
     def registrar_turno(self, turno): #Agrego un nuevo turno a la lista de turnos.
-        self.turnos.agregar(turno.dato, turno) #TAREA: Comparar fecha y hora.
+        self.turnos.agregar(turno.dato, turno) 
     
     def mostrar_turnos(self):
         self.turnos.inorden()
@@ -145,5 +138,5 @@ class Clinica:
             return None
     
     def eliminar_turno(self, turno): #Elimino un turno de la lista de turnos.
-        self.turnos.eliminar(turno.dato) #TAREA: Comparar fecha y hora.
+        self.turnos.eliminar(turno.dato)
 

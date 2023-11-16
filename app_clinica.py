@@ -29,7 +29,7 @@ def run(turneoOdontologico):
     while opcion != 11:
         opcion = menu()
         
-        if opcion == 1: #Acá tengo que agregar el paciente a la lista de pacientes.
+        if opcion == 1: #Registra nuevo paciente.
             nombre = input("Ingrese el nombre del paciente: ")
             apellido = input("Ingrese el apellido del paciente: ")
             dni = int(input("Ingrese el DNI del paciente: "))
@@ -43,7 +43,7 @@ def run(turneoOdontologico):
                 print("¡Paciente registrado con éxito!")
             input("Presione Enter para continuar...")    
         
-        elif opcion == 2: #Acá tengo que agregar el profesional a la lista de profesionales.
+        elif opcion == 2: # Agrega el profesional a la lista de profesionales.
             nombre = input("Ingrese el nombre del profesional: ")
             apellido = input("Ingrese el apellido del profesional: ")
             dni = int(input("Ingrese el DNI del profesional: "))
@@ -58,7 +58,7 @@ def run(turneoOdontologico):
                 print("¡Profesional registrado con éxito!")
             input("Presione Enter para continuar...")    
         
-        elif opcion == 3: #Se registra un nuevo turno # Paciente y Profesional deben estar registrados.
+        elif opcion == 3: #Registra un nuevo turno # Paciente y Profesional deben estar registrados.
             dni_paciente = int(input("Ingrese el DNI del paciente: "))
             if  turneoOdontologico.buscar_paciente(dni_paciente) == False: 
                 print("El paciente no se encuentra registrado, es necesario registrar el cliente para asignar un turno.")
@@ -87,7 +87,7 @@ def run(turneoOdontologico):
                 turneoOdontologico.mostrar_pacientes() 
             input("Presione Enter para continuar...") 
         
-        elif opcion == 5: 
+        elif opcion == 5: #Muestra paciente
             dni = int(input("Ingrese dni del paciente a buscar: "))
             resultado = turneoOdontologico.busqueda_individual_paciente(dni)
             if resultado is not None:
@@ -96,14 +96,14 @@ def run(turneoOdontologico):
                 print("El paciente no se encuentra registrado")
             input("Presione Enter para continuar")
                      
-        elif opcion == 6: #Mostrar lista de profesionales 
+        elif opcion == 6: #Muestra lista de profesionales 
             if turneoOdontologico.profesionales.longitud() == 0:
                 print("No hay profesionales registrados")
             else:
                 turneoOdontologico.mostrar_profesionales() 
             input("Presione Enter para continuar...")
         
-        elif opcion == 7: #Mostrar profesional
+        elif opcion == 7: #Muestra profesional
             dni = int(input("Ingrese dni del profesional a buscar: "))
             resultado = turneoOdontologico.busqueda_individual_profesional(dni)
             if resultado is not None:
@@ -112,14 +112,14 @@ def run(turneoOdontologico):
                 print("El profesional no se encuentra registrado")
             input("Presione Enter para continuar")
             
-        elif opcion == 8:  #Mostrar lista de turnos  
+        elif opcion == 8:  #Muestra lista de turnos  
             if turneoOdontologico.turnos.longitud() == 0:
                 print("No hay turnos registrados")
             else:
                 turneoOdontologico.mostrar_turnos()
             input("Presione Enter para continuar...") 
         
-        elif opcion == 9: #mostrar turno
+        elif opcion == 9: #Muestra turno
             fecha = input("Ingrese la fecha del turno que desea buscar en formato 'año,mes,dia,hora,min,seg': ")
             anio, mes, dia, hora, minuto, segundo = fecha.split(",")
             dato = datetime(int(anio), int(mes), int(dia), int(hora), int(minuto), int(segundo))
@@ -130,7 +130,7 @@ def run(turneoOdontologico):
                 print("El turno no se encuentra registrado")
             input("Presione Enter para continuar...")
 
-        elif opcion == 10: #Dar de baja un turno
+        elif opcion == 10: #Da de baja un turno
             fechaelim = input("Ingrese la fecha del turno en formato 'año,mes,dia,hora,min,seg': ")
             anio, mes, dia, hora, minuto, segundo = fechaelim.split(",")
             dato = datetime(int(anio), int(mes), int(dia), int(hora), int(minuto), int(segundo))
@@ -141,7 +141,7 @@ def run(turneoOdontologico):
                 print("Turno eliminado con éxito")
             input("Presione Enter para continuar...")
         
-        elif opcion == 11:
+        elif opcion == 11: #Sale del programa
             print("Gracias por utilizar el sistema de turnos Dental Desk. Una buena salud oral es clave para el bienestar general.")
         else:
             print("Opción incorrecta. Por favor, ingrese una opción válida")
